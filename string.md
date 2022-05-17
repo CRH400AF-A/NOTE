@@ -2,7 +2,39 @@
 
 
 string 支持的功能
-1. 直接在后面添加 char字符 or string对象 ， 也可以push_back() insert()
+
+1. 构造
+```c++
+string s0("Initial string"); //从c风格字符串构造
+string s1;			 //默认空字符串
+string s2(s0, 8, 3);		 //截取：“str”，index从8开始，长度为3
+string s3(“Another character sequence”, 12);					  //截取：“Another char”
+string s4(10, 'x');		 //复制字符：xxxxxxxxxx
+string s5(s0.begin(), s0.begin()+7);					 //复制截取: Initial
+```
+
+2. 访问/修改元素
+允许直接下标访问    s[1] = 'a'
+
+3. 输入方式
+```c++
+输入内容:
+Mike William
+Andy William
+#
+
+- 读取可见字符直到遇到空格    cin >> firstname;		//Mike
+
+- 读一行	getline(cin, fullname); //Mike William
+
+- 读到指定分隔符为止（可以读入换行符）	getline(cin, fullnames, ‘#’);		//“Mike William\nAndy William\n"
+
+```
+
+4. 清空 s.clear()
+5. 查询是否为空 s.empty()
+6. 简洁的拼接
+直接在后面添加 char字符 or string对象 ， 也可以push_back() insert()
 这是因为string重载了+、+=，同时也支持迭代器
 ```c++
 string a;
@@ -12,14 +44,14 @@ a.push_back('a');
 a.insert(a.begin(),'1')
 ```
 
-2. 查询大小
+7. 查询大小
 调用size() or length()
 
-3. 比较
+8. 比较
 重载了 == != > < 
 会按照字典序比较
 
-4. 遍历
+9. 遍历
 利用迭代器或者下标
 ```c++
 void test6()
@@ -54,7 +86,7 @@ void test6()
 ```
 
 
-5. 删除 erase()
+10. 删除 erase()
 可以利用迭代器
 ```c++
 1. iterator erase(iterator p);//删除字符串中p所指的字符
@@ -89,7 +121,7 @@ void test6()
 }
 ```
 
-6. 查找 find()
+11. 查找 find()
 ```c++
 void test8()
 {
@@ -126,13 +158,13 @@ void test8()
 ```
 
 
-7. 内部排序 sort()
+12. 内部排序 sort()
 借助迭代器
 ```c++
 sort(s.begin(),s.end());
 ```
 
-8. 切割字符串 substr()
+13. 切割字符串 substr()
 a.substr(start_position,length);
 ```c++
 void test11()
